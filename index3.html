@@ -64,21 +64,7 @@
         db.transaction(populateDB, errorCB, successCB);
     }
 
-// alert dialog dismissed
-    function alertDismissed() {
-        // do something
-    }
 
-    // Show a custom alert
-    //
-    function showAlert() {
-        navigator.notification.alert(
-            'You are the winner!',  // message
-            alertDismissed,         // callback
-            'Game Over',            // title
-            'Done'                  // buttonName
-        );
-    }
 
     </script>
   </head>
@@ -90,6 +76,6 @@
     <div class="results">
     
     </div><!-- results -->
-    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+
   </body>
 </html>
