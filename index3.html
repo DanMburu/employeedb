@@ -24,6 +24,8 @@
         tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+		tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Daniel Mburu")');
+		tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Test User")');
     }
 
     // Query the database
@@ -38,7 +40,7 @@
         var len = results.rows.length;
         console.log("DEMO table: " + len + " rows found.");
         for (var i=0; i<len; i++){
-             $('.results').append("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
+             $('.results').append("<br>Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
         }
     }
 
@@ -62,6 +64,22 @@
         db.transaction(populateDB, errorCB, successCB);
     }
 
+// alert dialog dismissed
+    function alertDismissed() {
+        // do something
+    }
+
+    // Show a custom alert
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
     </script>
   </head>
   <body>
@@ -72,5 +90,6 @@
     <div class="results">
     
     </div><!-- results -->
+    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
   </body>
 </html>

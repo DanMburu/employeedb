@@ -6,6 +6,7 @@ var db;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+	alert('ready');
     db = window.openDatabase("EmployeeDirectoryDB", "1.0", "PhoneGap Demo", 200000);
     db.transaction(getReportList, transaction_error);
 }

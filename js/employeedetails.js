@@ -7,7 +7,7 @@ var db;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-	console.log("opening database");
+	alert("opening database");
     db = window.openDatabase("EmployeeDirectoryDB", "1.0", "PhoneGap Demo", 200000);
 	console.log("database opened");
     db.transaction(getEmployee, transaction_error);
@@ -34,7 +34,7 @@ function getEmployee_success(tx, results) {
 	$('#fullName').text(employee.firstName + ' ' + employee.lastName);
 	$('#employeeTitle').text(employee.title);
 	$('#city').text(employee.city);
-	console.log(employee.officePhone);
+	alert(employee.officePhone);
 	if (employee.managerId>0) {
 		$('#actionList').append('<li><a href="employeedetails.html?id=' + employee.managerId + '"><p class="line1">View Manager</p>' +
 				'<p class="line2">' + employee.managerFirstName + ' ' + employee.managerLastName + '</p></a></li>');
