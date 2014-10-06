@@ -6,7 +6,7 @@ var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScro
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-
+showAlert();
 alert('ready');
     db = window.openDatabase("EmployeeDirectoryDB", "1.0", "PhoneGap Demo", 200000);
     if (dbCreated)
