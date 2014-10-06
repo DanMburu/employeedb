@@ -19,13 +19,14 @@
 
     // Populate the database 
     //
+	alert('ready');
     function populateDB(tx) {
         tx.executeSql('DROP TABLE IF EXISTS DEMO');
         tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
-		tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Daniel Mburu")');
-		tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Test User")');
+		
+		alert('populated');
     }
 
     // Query the database
@@ -39,8 +40,9 @@
     function querySuccess(tx, results) {
         var len = results.rows.length;
         console.log("DEMO table: " + len + " rows found.");
+		alert('processing');
         for (var i=0; i<len; i++){
-             $('.results').append("<br>Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
+             $('.results').append("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
         }
     }
 
@@ -64,8 +66,6 @@
         db.transaction(populateDB, errorCB, successCB);
     }
 
-
-
     </script>
   </head>
   <body>
@@ -76,6 +76,5 @@
     <div class="results">
     
     </div><!-- results -->
-
   </body>
 </html>
