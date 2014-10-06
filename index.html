@@ -42,7 +42,7 @@ function onBodyLoad(){
  
 // This alert is used to make sure the application is loaded correctly
 // you can comment this out once you have the application working
-alert("DEBUGGING: we are in the onBodyLoad() function");
+//alert("DEBUGGING: we are in the onBodyLoad() function");
  
 if (!window.openDatabase) {
 // not all mobile devices support databases if it does not, thefollowing alert will display
@@ -89,11 +89,12 @@ db.transaction(function(transaction) {
 transaction.executeSql('SELECT * FROM User;', [],
 function(transaction, result) {
 if (result != null && result.rows != null) {
+	$('#lbUsers').append('<ul>');
 for (var i = 0; i < result.rows.length; i++) {
-var row = result.rows.item(i);
-$('#lbUsers').append('<br>' + row.UserId + '. ' +
-row.FirstName+ ' ' + row.LastName);
+	var row = result.rows.item(i);
+	$('#lbUsers').append('<li>' + row.UserId + '. ' +row.FirstName+ ' ' + row.LastName+'</li>');
 }
+$('#lbUsers').append('</ul>');
 }
 },errorHandler);
 },errorHandler,nullHandler);
@@ -104,14 +105,13 @@ return;
  
 // this is the function that puts values into the database using the values from the text boxes on the screen
 function AddValueToDB() {
- alert('adding to db');
+
 if (!window.openDatabase) {
 alert('Databases are not supported in this browser.');
 return;
 }
  
-// this is the section that actually inserts the values into the User
-table
+// this is the section that actually inserts the values into the User table
 db.transaction(function(transaction) {transaction.executeSql('INSERT INTO User(FirstName, LastName) VALUES (?,?)',[$('#txFirstName').val(), $('#txLastName').val()],
 nullHandler,errorHandler);
 });

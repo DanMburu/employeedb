@@ -19,7 +19,7 @@ function transaction_error(tx, error) {
 }
 
 function getEmployee(tx) {
-	alert('getEmployee'+[id]);
+	
 	$('#busy').show();
 	var sql = "select e.id, e.firstName, e.lastName, e.managerId, e.title, e.department, e.city, e.officePhone, e.cellPhone, " +
 				"e.email, e.picture, m.firstName managerFirstName, m.lastName managerLastName, count(r.id) reportCount " +
@@ -29,14 +29,14 @@ function getEmployee(tx) {
 }
 
 function getEmployee_success(tx, results) {
-	alert('getting details');
+	
 	$('#busy').hide();
 	var employee = results.rows.item(0);
 	$('#employeePic').attr('src', 'pics/' + employee.picture);
 	$('#fullName').text(employee.firstName + ' ' + employee.lastName);
 	$('#employeeTitle').text(employee.title);
 	$('#city').text(employee.city);
-	alert(employee.officePhone);
+	
 	if (employee.managerId>0) {
 		$('#actionList').append('<li><a href="employeedetails.html?id=' + employee.managerId + '"><p class="line1">View Manager</p>' +
 				'<p class="line2">' + employee.managerFirstName + ' ' + employee.managerLastName + '</p></a></li>');
