@@ -104,7 +104,7 @@ return;
  
 // this is the function that puts values into the database using the values from the text boxes on the screen
 function AddValueToDB() {
- 
+ alert('adding to db');
 if (!window.openDatabase) {
 alert('Databases are not supported in this browser.');
 return;
@@ -125,7 +125,7 @@ return false;
  
 </script>
 </head>
-<body onload="onBodyLoad()">
+<body onLoad="onBodyLoad()">
 <a href="index2.html" style="float: left;font-size: 30px;margin-top: 30px;">Switch index2</a>
 <a href="index3.html" style="float: left;font-size: 30px;margin-top: 30px;">Switch index3</a>
 <h1>WebSQL</h1>
