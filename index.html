@@ -55,8 +55,7 @@ return;
 // if it does not exist, it will create it and return a database object stored in variable db
 db = openDatabase(shortName, version, displayName,maxSize);
  
-// this line will try to create the table User in the database just
-created/openned
+// this line will try to create the table User in the database just created/openned
 db.transaction(function(tx){
  
 // you can uncomment this next line if you want the User table to be empty each time the application runs
