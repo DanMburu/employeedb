@@ -6,12 +6,29 @@ var scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScro
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+
+alert('ready');
     db = window.openDatabase("EmployeeDirectoryDB", "1.0", "PhoneGap Demo", 200000);
     if (dbCreated)
     	db.transaction(getEmployees, transaction_error);
     else
     	db.transaction(populateDB, transaction_error, populateDB_success);
 }
+ // alert dialog dismissed
+    function alertDismissed() {
+        // do something
+    }
+
+    // Show a custom alert
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
 
 function transaction_error(tx, error) {
 	$('#busy').hide();
